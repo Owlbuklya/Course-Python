@@ -1,3 +1,5 @@
+# Модуль 1 / Часть 2 / Уровень 3
+
 password = input ('Введите пароль:')
 
 def check_password (password):
