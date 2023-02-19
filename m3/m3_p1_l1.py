@@ -1,6 +1,28 @@
-x = float(input('Введите размер вклада: '))
-p = float(input('Введите годовую процентную ставку: '))
-y = float(input ('Введите желаемый размер вклада: '))
+
+def checking_number(value, message):
+	while True:
+		try:
+			value = value.replace(',','.')
+			value = float(value)
+			if value % 1 == 0:
+				value = int(value)
+				return value
+		except:
+			print('Пожалуйста, введите число: ')
+			value = input(message)
+			continue
+		else:
+			break
+	return value
+
+x = input('Введите размер вклада: ')
+checking_number(x, 'Введите размер вклада: ')
+
+p = input('Введите годовую процентную ставку: ')
+checking_number(p, 'Введите годовую процентную ставку: ')
+
+y = input ('Введите желаемый размер вклада: ')
+checking_number(y, 'Введите желаемый размер вклада: ')
 
 # Функция расчета прибыли за 1 год 
 def annual_income (deposit_amount, interest_rate):
