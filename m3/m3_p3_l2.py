@@ -6,11 +6,11 @@ def textor(string_in, len_word):
 	str_list = string_without_punc_sym.split()
 	list_out = []
 	for word in str_list:
-		if len(word) == len_word:
+		if len(word) < len_word:
 			list_out.append(word)
 	return list_out
 
-n = 4 # длина слов для поиска 
+n = 5 # длина слов для поиска 
 
 s = '''Было просто пасмурно, дуло с севера
 А к обеду насчитал сто градаций серого.

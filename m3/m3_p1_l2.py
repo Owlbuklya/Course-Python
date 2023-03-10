@@ -1,11 +1,12 @@
-def checking_number(value, message):
+# Функция проверка ввденного значения на число 
+def checking_number(message):
+	value = input(message) 
 	while True:
 		try:
-			value = value.replace(',','.')
-			value = float(value)
-			if value % 1 == 0:
-				value = int(value)
-				break
+			value = value.replace(' ','')
+			value = value.replace('-','')
+			value = int(value)
+			break
 		except:
 			print('Пожалуйста, введите число! ')
 			value = input(message)
@@ -14,9 +15,9 @@ def checking_number(value, message):
 
 message_1 = 'Введите количество повторений: '
 
-n = input(message_1) 
+n = ''
 
-n = checking_number(n, message_1)
+n = checking_number(message_1)
 
 i = 1
 

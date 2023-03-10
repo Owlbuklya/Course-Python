@@ -1,20 +1,23 @@
-def checking_number(value, message):
+def checking_number(message):
+	value = input(message)
 	while True:
 		try:
-			value = value.replace(' ', '')
-			value = value.replace('-', '')
+			value = value.replace(' ','')
+			value = value.replace('-','')
+			value = value.replace('.','')
+			value = value.replace(',','')
 			value = int(value)
 			break
 		except:
-			print('Пожалуйста, введите целое число!')
+			print('Пожалуйста, введите число!')
 			value = input(message)
 			continue
 	value = str(value)
 	return value
 
 message_1 = 'Введите целое число: '
-n = input(message_1)
-n = checking_number(n, message_1)
+n = ''
+n = checking_number(message_1)
 
 sum = 0
 
