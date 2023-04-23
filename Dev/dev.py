@@ -1,28 +1,34 @@
-from random import randint
-
-class Warrior():
-	health = 100
-	endurance = 100
-	armor = 100
-	def __init__(self, name):
-		self.name = name
-
-	def gen_action(self):
-		return randint(0,1)
-
-	def attack(self, other):
-		self.endurance -= 10
-		other.health -= 20
-
-
-
-unit_1 = Warrior('Воин 1')
-
-
-unit_2 = Warrior('Воин 2')
-
-
-unit_1.attack(unit_2)
-
-print(f'Здоровье {unit_2.name} - {unit_2.health}')
-print(f'Выносливость {unit_1.name} - {unit_1.endurance}')
+#Защита при атаке - <атакующий>.protect_attack(<защищающийся>)	
+	def protect_attack(self, other):
+		if self.endurance > 10:
+			self.endurance -= 10
+			dam_armor = randint(0,10)
+			if (other.armor - dam_armor) > 0:
+				other.armor -= dam_armor
+				dam_health = randint(0,20)
+				print(f'Урон броне - {dam_armor}')
+			else:
+				other.armor = 0	
+				dam_health = randint(10,30)
+			if (other.health - dam_health) > 10:
+				other.health -= dam_health
+			elif (other.health - dam_health) < 0:
+				print(f'Войну {other.name} нанесен смертельный удар. Он проигрывает бой!')
+				other.health = 0
+			else:
+				other.health -= dam_health
+		else:
+			dam_armor = randint(0,10)
+			if (other.armor - dam_armor) > 0:
+				other.armor -= dam_armor
+				dam_health = randint(0,10)
+			else:
+				other.armor = 0	
+				dam_health = randint(0,20)
+			if (other.health - dam_health) > 10:
+				other.health -= dam_health
+			elif (other.health - dam_health) < 0:
+				print(f'Войну {other.name} нанесен смертельный удар. Он проигрывает бой!')
+				other.health = 0
+			else:
+				other.health -= dam_health
