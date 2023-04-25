@@ -1,3 +1,5 @@
+import json
+
 class Model():
 	title = ''
 	text = ''
@@ -9,16 +11,14 @@ class Model():
 		self.author = input('Введите автора: ')
 
 	def save(self):
-		
+		note_data = self.__dict__
 		with open('model.json', 'w') as f:
-			json.dump(data_reg, f)
-		print(text_1.title)
-		print(text_1.text)
-		print(text_1.author)
+			json.dump(note_data, f)
+		print('Иформация записана в файл model.json')
 
+note_1 = Model()
 
+note_1.save()
 
-text_1 = Model()
-
-
-text_1.save()
+with open('model.json', 'r') as f:
+		 print(json.load(f))
