@@ -1,21 +1,24 @@
-from random import randint
-
 class StringVar:
 
-	def __init__(self):
-		self.str_data = input('Введите содержимое строки: ')
+	def __init__(self, str_data):
+		self.str_data = str_data
 
-	def set(self):
-		self.str_data = input('Введите новое содержимое строки: ')
+	def set(self, str_data):
+		self.str_data = str_data
 
 	def get(self):
 		return self.str_data
 
-s = StringVar()
+string_in = 'Какая-то строка'
 
-s.set()
+s = StringVar(string_in)
 
-print('Текущее содержимое строки:',s.get())
+print(f'\nТекущее содержимое строки: {string_in}')
 
+string_set = input("\n>>Метод set<<\nВведите новую строку: ")
 
-print(randint(10,30))
+s.set(string_set)
+
+string_get = s.get()
+
+print(f'\n>>Метод get<<\nНовое содержимое строки: {string_get}')

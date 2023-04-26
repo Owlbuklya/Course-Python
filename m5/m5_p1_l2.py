@@ -22,20 +22,22 @@ class Point:
 	def dist(self, other):
 		return ((self.x - other.x) ** 2 + (self.y - other.y) ** 2) ** 0.5	
 
-	def show_point(self):
-		return self.x, self.y
+	def __str__(self):
+		return f'{self.x, self.y}'
 
 
 p1 = Point(4, 1)
 p2 = Point(3, -2)
 
 p3 = p1 + p2
-print(f'p1{p1.show_point()} + p2{p2.show_point()} = p3{p3.show_point()}')
+
+print(f'p1{p1} + p2{p2} = p3{p3}')
 
 p4 = p1.subtract(p2)
-print(f'p1{p1.show_point()} - p2{p2.show_point()} = p4{p4.show_point()}')
+print(f'p1{p1} - p2{p2} = p4{p4}')
 
 p5 = p1.multiply(p2)
-print(f'p1{p1.show_point()} * p2{p2.show_point()} = p5{p5.show_point()}')
+print(f'p1{p1} х p2{p2} = p5{p5}')
+
 
 print(f'Расстояние между точками p1 и p2 - {p1.dist(p2)}')

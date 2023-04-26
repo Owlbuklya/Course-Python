@@ -6,8 +6,8 @@ class Warrior():
 	endurance = 100
 	armor = 100
 	
-	def __init__(self):
-		self.name = input(f'Введите имя войну {self.num}: ')
+	def __init__(self, name):
+		self.name = name
 		Warrior.num += 1
 		print(f""">> Войн {self.name} <<
 Здоровье - {self.health}
@@ -113,8 +113,8 @@ class Warrior():
 				print('Введите 1 или 0')
 				continue
 
-unit_1 = Warrior()
-unit_2 = Warrior()
+unit_1 = Warrior(1)
+unit_2 = Warrior(2)
 
 print('\n<<< Бой начался! >>>')
 
